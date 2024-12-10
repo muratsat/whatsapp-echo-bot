@@ -3,7 +3,7 @@ import hmac
 
 from fastapi import APIRouter, HTTPException, Header, Query, Request
 
-from app.env import env 
+from app.config import env 
 from app.whatsapp.cloud_api.webhooks import handle_webhoook_payload
 
 router = APIRouter(prefix="/cloud-api", tags=["Whatsapp"])
@@ -34,9 +34,7 @@ def _verify_signature(app_secret: str, payload: bytes, received_signature: str) 
 
 
 @router.post("/webhook")
-async def handle_webhook(
-    request: Request, x_hub_signature_256: str = Header(None)
-):
+async def handle_webhook(request: Request, x_hub_signature_256: str = Header(None)):
     # Ensure the signature header exists
     if not x_hub_signature_256:
         raise HTTPException(status_code=400, detail="Missing signature header")

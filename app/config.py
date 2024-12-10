@@ -7,6 +7,9 @@ class EnvironmentVariables(BaseSettings):
     app_secret: str
     facebook_access_token: str
 
+    openai_api_key: str
+    tavily_api_key: str
+
     model_config = SettingsConfigDict(env_file=".env")
 
 

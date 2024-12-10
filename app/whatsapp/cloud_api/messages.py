@@ -1,5 +1,5 @@
 import requests
-from app.env import env 
+from app.config import env 
 
 
 WHATSAPP_API_URL = "https://graph.facebook.com/v20.0"
