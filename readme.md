@@ -3,7 +3,7 @@
 ```
 .
 ├── app
-│   ├── env.py
+│   ├── env.py - environment variables
 │   ├── __init__.py
 │   ├── main.py
 │   ├── message_handler - all the logic for handling messages
